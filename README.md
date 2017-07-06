@@ -14,7 +14,9 @@ Context sensitive workspace navigation
 
 ### Issues & potential optomizations
 
-* Make work without BufferGator plugin (Fallback to :bnext / :bprev)
+* Don't use the unnamed register
+	* Will confuse users it's taken over
+	* No need to use it / lose data in it already
 * Stay in insert (or visual) modes when moving around
 	* Hacked right now exit mode and re-enter
 	* Loses cursor horizontal position when going back to insert mode
