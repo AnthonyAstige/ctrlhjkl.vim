@@ -4,10 +4,10 @@ Context sensitive code / cursor moving
 
 ## Guiding principals
 
-* <c-h>/<c-j>/<c-k>/<c-l> moves around in windows/tabs/buffers
+* `<c-h>` / `<c-j>` / `<c-k>` / `<c-l>` moves around in windows/tabs/buffers
 * Workspace context sensitive: Fall through: Windows > Tabs > Buffers
 * Mode context sensitive
-	* nmode moves cursor
+		* nmode moves cursor
 	* imode moves cursor remaining in insert mode
 	* vmode moves selected text remaining in insert mode
 * vmode: Visual line mode support only
@@ -15,24 +15,26 @@ Context sensitive code / cursor moving
 ## Implementation plans
 
 Windows (When exist in current tab)
-	<c-h>/<c-l>
-		nmode: Move focus to target window (cycling) (working)
-		vmode: Move code to target window (working)
-		* If no target window && have a tab, move to tab
-	<c-j>/<c-k>
-		nmode: Move focus to target window (cycling) (working)
-		vmode: Move code to target window (working)
-		* If no target window, move focus to next/prev buffer
+
+* `<c-h>` / `<c-l>`
+	* nmode: Move focus to target window (cycling) (working)
+	* vmode: Move code to target window (working)
+	* If no target window && have a tab, move to tab
+* `<c-j>` / `<c-k>`
+	* nmode: Move focus to target window (cycling) (working)
+	* vmode: Move code to target window (working)
+	* If no target window, move focus to next/prev buffer
 
 Tabs/Buffers (When no windows in current tab)
-	<c-h>/<c-l>
-		imode/nmode: Move focus to next/prev tab (cycling) (working)
-		vmode: Move code to next/prev tab (working)
-		* Switch to logical leftmost/rightmost window maintain vertical position
-		* If no window/tab to left or right, cycle buffers
-	<c-j>/<c-k>
-		imode/nmode: Move focus to next/prev buffer (cycling) (working)
-		vmode: Move code to next/prev buffer (working)
+	
+* `<c-h>` / `<c-l>`
+	* imode/nmode: Move focus to next/prev tab (cycling) (working)
+	* vmode: Move code to next/prev tab (working)
+	*  Switch to logical leftmost/rightmost window maintain vertical position
+	* If no window/tab to left or right, cycle buffers
+* `<c-j>` / `<c-k>`
+	* imode/nmode: Move focus to next/prev buffer (cycling) (working)
+	* vmode: Move code to next/prev buffer (working)
 
 ### Issues & potential optomizations
 
