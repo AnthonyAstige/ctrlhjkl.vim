@@ -27,11 +27,19 @@ function! s:tabprev()
 endfunction
 
 function! s:bnext()
-	:BuffergatorMruCycleNext
+	if exists(":BuffergatorMruCycleNext")
+		:BuffergatorMruCycleNext
+	else
+		:bnext
+	endif
 endfunction
 
 function! s:bprev()
-	:BuffergatorMruCyclePrev
+	if exists(":BuffergatorMruCyclePrev")
+		:BuffergatorMruCyclePrev
+	else
+		:bprev
+	endif
 endfunction
 
 
