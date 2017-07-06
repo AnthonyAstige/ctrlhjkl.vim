@@ -9,8 +9,21 @@ function! s:haveWindows()
 	return len(gettabinfo(tabpagenr())[0].windows) > 1
 endfunction
 
-function! s:ResetCursor()
-	normal! gv=gv^
+" TODO: Use this? Taken from vim-move
+"function! s:ResetCursor()
+"	normal! gv=gv^
+"endfunction
+
+" Leftmost window in next tab
+function! s:tabnext()
+	tabnext
+	1000wincmd h
+endfunction
+
+" Right window in prev tab
+function! s:tabprev()
+	tabprev
+	1000wincmd l
 endfunction
 
 "" Movement functions
@@ -54,7 +67,7 @@ function! s:goH()
 		wincmd h
 		if winnrBefore == winnr()
 			if s:haveTabs()
-				tabprev
+				call s:tabprev()
 			else
 				" Cycle to rightmost window
 				1000wincmd l
@@ -66,7 +79,7 @@ function! s:goH()
 		endif
 	else
 		if s:haveTabs()
-			tabprev
+			call s:tabprev()
 		else
 			:BuffergatorMruCycleNext
 		endif
@@ -79,7 +92,7 @@ function! s:goL()
 		wincmd l
 		if winnrBefore == winnr()
 			if s:haveTabs()
-				tabnext
+				call s:tabnext()
 			else
 				" Cycle to leftmost window
 				1000wincmd h
@@ -91,7 +104,7 @@ function! s:goL()
 		endif
 	else
 		if s:haveTabs()
-			tabnext
+			call s:tabnext()
 		else
 			:BuffergatorMruCyclePrev
 		endif
