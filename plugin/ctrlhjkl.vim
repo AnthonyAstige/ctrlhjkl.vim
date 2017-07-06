@@ -58,10 +58,18 @@ function! s:goH()
 			else
 				" Cycle to rightmost window
 				1000wincmd l
+
+				if winnrBefore == winnr()
+					:BuffergatorMruCycleNext
+				endif
 			endif
 		endif
 	else
-		tabprev
+		if s:haveTabs()
+			tabprev
+		else
+			:BuffergatorMruCycleNext
+		endif
 	endif
 endfunction
 
@@ -75,10 +83,18 @@ function! s:goL()
 			else
 				" Cycle to leftmost window
 				1000wincmd h
+
+				if winnrBefore == winnr()
+					:BuffergatorMruCyclePrev
+				endif
 			endif
 		endif
 	else
-		tabnext
+		if s:haveTabs()
+			tabprev
+		else
+			:BuffergatorMruCyclePrev
+		endif
 	endif
 endfunction
 
