@@ -32,7 +32,7 @@ Context sensitive workspace navigation
 	* When done with this, document how users can make use of <Plug> settings, hopefully just 4 maps
 * Warn when can't do anything
 
-## Related .vimrc plugins & settings
+## Related .vimrc plugins & settings (Optional)
 
 ```
 " jeetsukumaran/vim-buffergator
