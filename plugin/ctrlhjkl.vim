@@ -166,15 +166,15 @@ nnoremap <unique> <silent> <Plug>CtrlHJKLGoKn :CtrlHJKLGoK<cr>
 nnoremap <unique> <silent> <Plug>CtrlHJKLGoHn :CtrlHJKLGoH<cr>
 nnoremap <unique> <silent> <Plug>CtrlHJKLGoLn :CtrlHJKLGoL<cr>
 
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoJi <esc>:CtrlHJKLGoJ<cr>i
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoKi <esc>:CtrlHJKLGoK<cr>i
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoHi <esc>:CtrlHJKLGoH<cr>i
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoLi <esc>:CtrlHJKLGoL<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoJi <esc>:CtrlHJKLGoJ<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoKi <esc>:CtrlHJKLGoK<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoHi <esc>:CtrlHJKLGoH<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoLi <esc>:CtrlHJKLGoL<cr>i
 
-nnoremap <unique> <silent> <Plug>CtrlHJKLMoveJ x:CtrlHJKLMoveJ<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLMoveK x:CtrlHJKLMoveK<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLMoveH x:CtrlHJKLMoveH<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLMoveL x:CtrlHJKLMoveL<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveJ x:CtrlHJKLMoveJ<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveK x:CtrlHJKLMoveK<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveH x:CtrlHJKLMoveH<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveL x:CtrlHJKLMoveL<cr>
 
 " Actually map unless told not to
 if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
