@@ -2,44 +2,52 @@
 
 Context sensitive code / cursor moving
 
+## Guiding principals
+
+* <c-h>/<c-j>/<c-k>/<c-l> moves around in windows/tabs/buffers
+* Workspace context sensitive: Fall through: Windows > Tabs > Buffers
+* Mode context sensitive
+	* nmode moves cursor
+	* imode moves cursor remaining in insert mode
+	* vmode moves selected text remaining in insert mode
+* vmode: Visual line mode support only
+
 ## Implementation plans
 
 Windows (When exist in current tab)
 	<c-h>/<c-l>
 		nmode: Move focus to target window (cycling) (working)
-		vmode: Move code to target window
+		vmode: Move code to target window (working)
 		* If no target window && have a tab, move to tab
 	<c-j>/<c-k>
 		nmode: Move focus to target window (cycling) (working)
-		vmode: Move code to target window
+		vmode: Move code to target window (working)
 		* If no target window, move focus to next/prev buffer
 
 Tabs/Buffers (When no windows in current tab)
 	<c-h>/<c-l>
 		imode/nmode: Move focus to next/prev tab (cycling) (working)
-		vmode: Move code to next/prev tab
+		vmode: Move code to next/prev tab (working)
 		* Switch to logical leftmost/rightmost window maintain vertical position
+		* If no window/tab to left or right, cycle buffers
 	<c-j>/<c-k>
 		imode/nmode: Move focus to next/prev buffer (cycling) (working)
-		vmode: Move code to next/prev buffer
-	<c-#>
-		imode/nmode: If tabs, move focus to tab# (Later feature: Otherwise move to buffer# in mru)
-		vmode: If tabs, move code to tab#, (Later feature: Otherwise move to buffer# in mru)
+		vmode: Move code to next/prev buffer (working)
 
-Philosophy
-	vmode: Visual line mode support only
+### Issues & potential optomizations
 
-### Potential optomizations
-
-* Highlight focused window better
-* Make work slick like vim-move plugin without jitter
-	* Maybe just <silent> ?
-* Turn this into a .vim plugin and share it
-	* Ask for feedback when sharing, if bindings make sense or if others might be better
-* Warning when can't do anything?
+* Stay in insert (or visual) modes when moving around
+	* Hacked right now exit mode and re-enter
+	* Loses cursor horizontal position when going back to insert mode
+	* Causes jitter
+* Smart detection so don't need to bind <esc>...i when in insert mode
+	* Will reduce command namespace too?
+* Warn when can't do anything
+* Abstract Move functions as just wrapper of Go functions, functional programming in vimscript?
+* Make work with prefix counts like 10<c-j> moves 10 windows/buffers down
+* Highlight focused window better (Another plugin?)
 
 ## Related plans / plugins
-
 
 ### Plans
 
@@ -77,4 +85,9 @@ let g:BufKillCreateMappings = 0 " My own keymappings
 " matze/vim-move to work as <s-j> and <s-k>
 " Works with shift '>'
 let g:move_key_modifier = 'S'
+
+" ctrlpvim/ctrlp.vim
+" Use ctrlp in insert mode
+" * TODO: Make this put back in insert mode
+inoremap <silent> <c-p> <esc>:CtrlP<cr>
 ```
