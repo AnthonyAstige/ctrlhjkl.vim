@@ -26,20 +26,14 @@ function! s:tabprev()
 	1000wincmd l
 endfunction
 
+" Buffer movement
+" * TODO: Add back in MRU support, buffergator MRU was window based and
+" problematic
 function! s:bnext()
-	if exists(":BuffergatorMruCycleNext")
-		:BuffergatorMruCycleNext
-	else
-		:bnext
-	endif
+	:bnext
 endfunction
-
 function! s:bprev()
-	if exists(":BuffergatorMruCyclePrev")
-		:BuffergatorMruCyclePrev
-	else
-		:bprev
-	endif
+	:bprev
 endfunction
 
 
