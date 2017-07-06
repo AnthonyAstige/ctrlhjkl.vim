@@ -26,6 +26,15 @@ function! s:tabprev()
 	1000wincmd l
 endfunction
 
+function! s:bnext()
+	:BuffergatorMruCycleNext
+endfunction
+
+function! s:bprev()
+	:BuffergatorMruCyclePrev
+endfunction
+
+
 "" Movement functions
 function! s:goJ()
 	if s:haveWindows()
@@ -36,11 +45,11 @@ function! s:goJ()
 			1000wincmd k
 			" Only one window, cycle the buffer
 			if winnrBefore == winnr()
-				:BuffergatorMruCyclePrev
+				call s:bprev()
 			endif
 		endif
 	else
-		:BuffergatorMruCyclePrev
+		call s:bprev()
 	endif
 endfunction
 
@@ -53,11 +62,11 @@ function! s:goK()
 			1000wincmd j
 			" Only one window, cycle the buffer
 			if winnrBefore == winnr()
-				:BuffergatorMruCycleNext
+				call s:bnext()
 			endif
 		endif
 	else
-		:BuffergatorMruCycleNext
+		call s:bnext()
 	endif
 endfunction
 
@@ -73,7 +82,7 @@ function! s:goH()
 				1000wincmd l
 
 				if winnrBefore == winnr()
-					:BuffergatorMruCycleNext
+					call s:bnext()
 				endif
 			endif
 		endif
@@ -81,7 +90,7 @@ function! s:goH()
 		if s:haveTabs()
 			call s:tabprev()
 		else
-			:BuffergatorMruCycleNext
+			call s:bnext()
 		endif
 	endif
 endfunction
@@ -98,7 +107,7 @@ function! s:goL()
 				1000wincmd h
 
 				if winnrBefore == winnr()
-					:BuffergatorMruCyclePrev
+					call s:bprev()
 				endif
 			endif
 		endif
@@ -106,7 +115,7 @@ function! s:goL()
 		if s:haveTabs()
 			call s:tabnext()
 		else
-			:BuffergatorMruCyclePrev
+			call s:bprev()
 		endif
 	endif
 endfunction
