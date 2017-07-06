@@ -38,6 +38,7 @@ Tabs/Buffers (When no windows in current tab)
 
 ### Issues & potential optomizations
 
+* Make work without BufferGator plugin (Fallback to :bnext / :bprev)
 * Stay in insert (or visual) modes when moving around
 	* Hacked right now exit mode and re-enter
 	* Loses cursor horizontal position when going back to insert mode
