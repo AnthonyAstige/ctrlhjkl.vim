@@ -26,7 +26,6 @@ Context sensitive workspace navigation
 * Warn when can't do anything
 * Abstract Move functions as just wrapper of Go functions, functional programming in vimscript?
 * Make work with prefix counts like `10<c-j>` moves 10 windows/buffers down
-* Highlight focused window better (Another plugin?)
 
 ## Related .vimrc plugins & settings
 
