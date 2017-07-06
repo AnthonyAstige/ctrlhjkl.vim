@@ -9,32 +9,8 @@ Context sensitive workspace navigation
 * Mode context sensitive
 	* Normal mode moves cursor
 	* Insert mode moves cursor remaining in insert mode
-	* Visual mode moves selected text remaining in insert mode
+	* Visual mode moves selected text remaining in visual mode
 * Visual mode is line based only
-
-## Implementation plans
-
-Windows (When exist in current tab)
-
-* `<c-h>` / `<c-l>`
-	* nmode: Move focus to target window (cycling) (working)
-	* vmode: Move code to target window (working)
-	* If no target window && have a tab, move to tab
-* `<c-j>` / `<c-k>`
-	* nmode: Move focus to target window (cycling) (working)
-	* vmode: Move code to target window (working)
-	* If no target window, move focus to next/prev buffer
-
-Tabs/Buffers (When no windows in current tab)
-
-* `<c-h>` / `<c-l>`
-	* imode/nmode: Move focus to next/prev tab (cycling) (working)
-	* vmode: Move code to next/prev tab (working)
-	*  Switch to logical leftmost/rightmost window maintain vertical position
-	* If no window/tab to left or right, cycle buffers
-* `<c-j>` / `<c-k>`
-	* imode/nmode: Move focus to next/prev buffer (cycling) (working)
-	* vmode: Move code to next/prev buffer (working)
 
 ### Issues & potential optomizations
 
@@ -45,11 +21,11 @@ Tabs/Buffers (When no windows in current tab)
 	* Causes jitter
 * When working in visual mode (not visual line mode) make select entire line
 	* Currently gives odd behavior
-* Smart detection so don't need to bind <esc>...i when in insert mode
+* Smart detection so don't need to bind `<esc>...i` when in insert mode
 	* Will reduce command namespace too?
 * Warn when can't do anything
 * Abstract Move functions as just wrapper of Go functions, functional programming in vimscript?
-* Make work with prefix counts like 10<c-j> moves 10 windows/buffers down
+* Make work with prefix counts like `10<c-j>` moves 10 windows/buffers down
 * Highlight focused window better (Another plugin?)
 
 ## Related .vimrc plugins & settings
