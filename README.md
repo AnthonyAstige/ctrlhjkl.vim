@@ -52,28 +52,7 @@ Tabs/Buffers (When no windows in current tab)
 * Make work with prefix counts like 10<c-j> moves 10 windows/buffers down
 * Highlight focused window better (Another plugin?)
 
-## Related plans / plugins
-
-### Plans
-
-Local (working)
-	h/j/k/l
-Move focus
-	<s-j>/<s-j>
-	nmode: Move line (vim-move)
-	vmode: Move line (vim-move)
-
-```
-<c-g> BufferGator
-	Not open: Open BufferGator (working)
-	Already open: Close BufferGator
-<c-x> (Fallthrough)
-	* Window: Close window & kill buffer if this is only place it's open
-	* Tab: Close tab & kill buffer if this is only place it's open
-	* Buffer: Kill buffer (working but always doing this)
-```
-
-### .vimrc settings
+## Related .vimrc plugins & settings
 
 ```
 " jeetsukumaran/vim-buffergator
