@@ -9,32 +9,8 @@ Context sensitive workspace navigation
 * Mode context sensitive
 	* Normal mode moves cursor
 	* Insert mode moves cursor remaining in insert mode
-	* Visual mode moves selected text remaining in insert mode
+	* Visual mode moves selected text remaining in visual mode
 * Visual mode is line based only
-
-## Implementation plans
-
-Windows (When exist in current tab)
-
-* `<c-h>` / `<c-l>`
-	* nmode: Move focus to target window (cycling) (working)
-	* vmode: Move code to target window (working)
-	* If no target window && have a tab, move to tab
-* `<c-j>` / `<c-k>`
-	* nmode: Move focus to target window (cycling) (working)
-	* vmode: Move code to target window (working)
-	* If no target window, move focus to next/prev buffer
-
-Tabs/Buffers (When no windows in current tab)
-
-* `<c-h>` / `<c-l>`
-	* imode/nmode: Move focus to next/prev tab (cycling) (working)
-	* vmode: Move code to next/prev tab (working)
-	*  Switch to logical leftmost/rightmost window maintain vertical position
-	* If no window/tab to left or right, cycle buffers
-* `<c-j>` / `<c-k>`
-	* imode/nmode: Move focus to next/prev buffer (cycling) (working)
-	* vmode: Move code to next/prev buffer (working)
 
 ### Issues & potential optomizations
 
