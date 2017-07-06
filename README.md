@@ -26,7 +26,7 @@ Windows (When exist in current tab)
 	* If no target window, move focus to next/prev buffer
 
 Tabs/Buffers (When no windows in current tab)
-	
+
 * `<c-h>` / `<c-l>`
 	* imode/nmode: Move focus to next/prev tab (cycling) (working)
 	* vmode: Move code to next/prev tab (working)
