@@ -1,6 +1,6 @@
 # CtrlHJKL
 
-Context sensitive code / cursor moving
+Context sensitive workspace navigation
 
 ## Guiding principals
 
