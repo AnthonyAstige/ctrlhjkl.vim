@@ -171,7 +171,7 @@ inoremap <silent> <c-k> <esc>:CtrlHJKLGoK<cr>i
 inoremap <silent> <c-h> <esc>:CtrlHJKLGoH<cr>i
 inoremap <silent> <c-l> <esc>:CtrlHJKLGoL<cr>i
 
-vnoremap <silent> <c-j> x:CtrlHJKLMoveJ<cr>
-vnoremap <silent> <c-k> x:CtrlHJKLMoveK<cr>
-vnoremap <silent> <c-h> x:CtrlHJKLMoveH<cr>
-vnoremap <silent> <c-l> x:CtrlHJKLMoveL<cr>
+xnoremap <silent> <c-j> x:CtrlHJKLMoveJ<cr>
+xnoremap <silent> <c-k> x:CtrlHJKLMoveK<cr>
+xnoremap <silent> <c-h> x:CtrlHJKLMoveH<cr>
+xnoremap <silent> <c-l> x:CtrlHJKLMoveL<cr>
