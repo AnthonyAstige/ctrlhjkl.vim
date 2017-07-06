@@ -27,6 +27,7 @@ Context sensitive workspace navigation
 	* Will reduce command namespace too?
 * Warn when can't do anything
 * Abstract Move functions as just wrapper of Go functions, functional programming in vimscript?
+	* When done with this, document how users can make use of <Plug> settings, hopefully just 4 maps
 * Make work with prefix counts like `10<c-j>` moves 10 windows/buffers down
 
 ## Related .vimrc plugins & settings

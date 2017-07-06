@@ -160,18 +160,36 @@ command CtrlHJKLMoveK :call s:moveK()
 command CtrlHJKLMoveH :call s:moveH()
 command CtrlHJKLMoveL :call s:moveL()
 
-" Mappings
-nnoremap <silent> <c-j> :CtrlHJKLGoJ<cr>
-nnoremap <silent> <c-k> :CtrlHJKLGoK<cr>
-nnoremap <silent> <c-h> :CtrlHJKLGoH<cr>
-nnoremap <silent> <c-l> :CtrlHJKLGoL<cr>
+" Plug templating mappings
+nnoremap <silent> <silent> <Plug>CtrlHJKLGoJn :CtrlHJKLGoJ<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoKn :CtrlHJKLGoK<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoHn :CtrlHJKLGoH<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoLn :CtrlHJKLGoL<cr>
 
-inoremap <silent> <c-j> <esc>:CtrlHJKLGoJ<cr>i
-inoremap <silent> <c-k> <esc>:CtrlHJKLGoK<cr>i
-inoremap <silent> <c-h> <esc>:CtrlHJKLGoH<cr>i
-inoremap <silent> <c-l> <esc>:CtrlHJKLGoL<cr>i
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoJi <esc>:CtrlHJKLGoJ<cr>i
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoKi <esc>:CtrlHJKLGoK<cr>i
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoHi <esc>:CtrlHJKLGoH<cr>i
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoLi <esc>:CtrlHJKLGoL<cr>i
 
-xnoremap <silent> <c-j> x:CtrlHJKLMoveJ<cr>
-xnoremap <silent> <c-k> x:CtrlHJKLMoveK<cr>
-xnoremap <silent> <c-h> x:CtrlHJKLMoveH<cr>
-xnoremap <silent> <c-l> x:CtrlHJKLMoveL<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLMoveJ x:CtrlHJKLMoveJ<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLMoveK x:CtrlHJKLMoveK<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLMoveH x:CtrlHJKLMoveH<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLMoveL x:CtrlHJKLMoveL<cr>
+
+" Actually map unless told not to
+if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
+	nmap <c-j> <Plug>CtrlHJKLGoJn
+	nmap <c-k> <Plug>CtrlHJKLGoKn
+	nmap <c-h> <Plug>CtrlHJKLGoHn
+	nmap <c-l> <Plug>CtrlHJKLGoLn
+
+	imap <c-j> <Plug>CtrlHJKLGoJi
+	imap <c-k> <Plug>CtrlHJKLGoKi
+	imap <c-h> <Plug>CtrlHJKLGoHi
+	imap <c-l> <Plug>CtrlHJKLGoLi
+
+	xmap <c-j> <Plug>CtrlHJKLMoveJ
+	xmap <c-k> <Plug>CtrlHJKLMoveK
+	xmap <c-h> <Plug>CtrlHJKLMoveH
+	xmap <c-l> <Plug>CtrlHJKLMoveL
+endif
