@@ -30,7 +30,6 @@ Context sensitive workspace navigation
 	* "Insert mode mappings for navigation? This seems like it goes against the "Vim Way"." - [princker](https://www.reddit.com/r/vim/comments/6lnwty/creating_plugin_for_navigating_windowsbufferstabs/)
 * Abstract Move functions as just wrapper of Go functions, functional programming in vimscript?
 	* When done with this, document how users can make use of <Plug> settings, hopefully just 4 maps
-* Warn when can't do anything
 
 ## Related .vimrc plugins & settings (Optional)
 
