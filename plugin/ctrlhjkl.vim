@@ -91,7 +91,7 @@ function! s:goL()
 		endif
 	else
 		if s:haveTabs()
-			tabprev
+			tabnext
 		else
 			:BuffergatorMruCyclePrev
 		endif
