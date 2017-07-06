@@ -4,13 +4,13 @@ Context sensitive code / cursor moving
 
 ## Guiding principals
 
-* `<c-h>` / `<c-j>` / `<c-k>` / `<c-l>` moves around in windows/tabs/buffers
+* `<c-h>` / `<c-j>` / `<c-k>` / `<c-l>` moves cursor around in windows/tabs/buffers
 * Workspace context sensitive: Fall through: Windows > Tabs > Buffers
 * Mode context sensitive
-		* nmode moves cursor
-	* imode moves cursor remaining in insert mode
-	* vmode moves selected text remaining in insert mode
-* vmode: Visual line mode support only
+	* Normal mode moves cursor
+	* Insert mode moves cursor remaining in insert mode
+	* Visual mode moves selected text remaining in insert mode
+* Visual mode is line based only
 
 ## Implementation plans
 
@@ -43,6 +43,8 @@ Tabs/Buffers (When no windows in current tab)
 	* Hacked right now exit mode and re-enter
 	* Loses cursor horizontal position when going back to insert mode
 	* Causes jitter
+* When working in visual mode (not visual line mode) make select entire line
+	* Currently gives odd behavior
 * Smart detection so don't need to bind <esc>...i when in insert mode
 	* Will reduce command namespace too?
 * Warn when can't do anything
