@@ -38,6 +38,7 @@ let g:ctrlhjkl_suppress_buffercycling = 1
 
 * Create a /doc/ctrlp.txt
 	* And update ctags?
+* Create real screencast .gif and place in README
 * Promote this plugin looking for beta testers
 	* Reddit again?
 	* http://www.vim.org/scripts/?
