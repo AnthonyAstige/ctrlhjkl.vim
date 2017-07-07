@@ -25,7 +25,6 @@ xmap <s-h> <Plug>CtrlHJKLMoveH
 xmap <s-l> <Plug>CtrlHJKLMoveL
 ```
 
-
 ### Issues & potential optomizations
 
 * Create a /doc/ctrlp.txt
