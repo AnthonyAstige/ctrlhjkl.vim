@@ -1,10 +1,8 @@
 "" Utils
-" Returns true if we have tabs
+" Check for tabs in vim / windows in tab
 function! s:haveTabs()
 	return tabpagenr('$') > 1
 endfunction
-
-" Returns true if current tab has windows
 function! s:haveWindows()
 	return len(gettabinfo(tabpagenr())[0].windows) > 1
 endfunction
@@ -20,8 +18,6 @@ function! s:tabprev()
 endfunction
 
 " Buffer movement
-" * TODO: Add back in MRU support, buffergator MRU was window based and
-" problematic
 function! s:bnext()
 	:bnext
 endfunction
