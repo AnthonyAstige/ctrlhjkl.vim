@@ -19,10 +19,14 @@ endfunction
 
 " Buffer movement
 function! s:bnext()
-	:bnext
+	if !get(g:, 'ctrlhjkl_suppress_buffercycling', 0)
+		:bnext
+	endif
 endfunction
 function! s:bprev()
-	:bprev
+	if !get(g:, 'ctrlhjkl_suppress_buffercycling', 0)
+		:bprev
+	endif
 endfunction
 
 " Cut n paste without overwritting unnamed register

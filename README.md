@@ -10,10 +10,12 @@ Context sensitive workspace navigation
 	* Normal mode moves cursor
 	* Visual mode moves selected (line of) text
 
-## Mapping your own keys
+## Configuration
+
+### Mapping your own keys
 
 ```
-let g:ctrlhjkl_suppress_keymaps
+let g:ctrlhjkl_suppress_keymaps = 1
 nmap <s-j> <Plug>CtrlHJKLGoJn
 nmap <s-k> <Plug>CtrlHJKLGoKn
 nmap <s-h> <Plug>CtrlHJKLGoHn
@@ -24,6 +26,13 @@ xmap <s-k> <Plug>CtrlHJKLMoveK
 xmap <s-h> <Plug>CtrlHJKLMoveH
 xmap <s-l> <Plug>CtrlHJKLMoveL
 ```
+### Disable buffer cycling
+
+```
+let g:ctrlhjkl_suppress_buffercycling = 1
+```
+
+[Why cycle when you can fly?](https://i.stack.imgur.com/9CCOq.png)
 
 ### Issues & potential optomizations
 
