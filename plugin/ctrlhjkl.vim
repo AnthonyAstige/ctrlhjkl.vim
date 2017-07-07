@@ -139,7 +139,7 @@ function! s:goL(mode) range
 endfunction
 
 " Plug templating mappings
-nnoremap <silent> <silent> <Plug>CtrlHJKLGoJn :call <SID>goJ('n')<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoJn :call <SID>goJ('n')<cr>
 nnoremap <unique> <silent> <Plug>CtrlHJKLGoKn :call <SID>goK('n')<cr>
 nnoremap <unique> <silent> <Plug>CtrlHJKLGoHn :call <SID>goH('n')<cr>
 nnoremap <unique> <silent> <Plug>CtrlHJKLGoLn :call <SID>goL('n')<cr>
