@@ -17,8 +17,6 @@ Context sensitive workspace navigation
 	* Hacked right now exit mode and re-enter
 	* Loses cursor horizontal position when going back to insert mode
 	* Causes jitter
-* When working in visual mode (not visual line mode) make select entire line
-	* Currently gives odd behavior
 * Make work with prefix counts like `10<c-j>` moves 10 windows/buffers down
 * Document how users can make use of <Plug> settings, hopefully just 4 maps
 

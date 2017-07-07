@@ -35,7 +35,11 @@ let s:originalValue = ''
 function! s:cut(mode)
 	if a:mode ==# 'v'
 		let s:originalValue = @@
-		normal! gvx
+		normal! gv
+		if "V" != mode()
+			normal! V
+		endif
+		normal! d
 	endif
 endfunction
 function! s:paste(mode)
