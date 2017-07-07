@@ -13,10 +13,6 @@ Context sensitive workspace navigation
 
 ### Issues & potential optomizations
 
-* Stay in insert (or visual) modes when moving around
-	* Hacked right now exit mode and re-enter
-	* Loses cursor horizontal position when going back to insert mode
-	* Causes jitter
 * Document how users can make use of <Plug> settings, hopefully just 4 maps
 * Create a /doc/ctrlp.txt
 	* And update ctags?
