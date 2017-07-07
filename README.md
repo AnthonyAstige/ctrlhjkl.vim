@@ -27,13 +27,6 @@ Context sensitive workspace navigation
 ## Related .vimrc plugins & settings (Optional)
 
 ```
-" jeetsukumaran/vim-buffergator
-let g:buffergator_suppress_keymaps = 1 " My own keymappings
-let g:buffergator_sort_regime = 'mru' "Sort by Most Recently Used
-let g:buffergator_mru_cycle_loop = 1 " Loop MRU
-let g:buffergator_autoupdate = 1 " Update as we change buffers (for use with MoveHJKL)
-nmap <silent> <c-g> :BuffergatorOpen<cr>
-
 " 'qpkorr/vim-bufkill'
 let g:BufKillCreateMappings = 0 " My own keymappings
 :nnoremap <C-x> :BD<cr>
