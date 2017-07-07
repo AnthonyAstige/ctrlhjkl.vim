@@ -35,7 +35,7 @@ let g:BufKillCreateMappings = 0 " My own keymappings
 let g:move_key_modifier = 'S'
 ```
 
-# Inspirations
+## Inspirations
 
 * [Vim Tab Madness. Buffers vs Tabs](http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/)
 * [Ctrl-P](https://github.com/kien/ctrlp.vim)
