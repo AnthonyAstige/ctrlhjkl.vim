@@ -143,32 +143,21 @@ function! s:moveL()
 	normal! P`[V`]
 endfunction
 
-" Commands
-command CtrlHJKLGoJ :call s:goJ()
-command CtrlHJKLGoK :call s:goK()
-command CtrlHJKLGoH :call s:goH()
-command CtrlHJKLGoL :call s:goL()
-
-command CtrlHJKLMoveJ :call s:moveJ()
-command CtrlHJKLMoveK :call s:moveK()
-command CtrlHJKLMoveH :call s:moveH()
-command CtrlHJKLMoveL :call s:moveL()
-
 " Plug templating mappings
-nnoremap <silent> <silent> <Plug>CtrlHJKLGoJn :CtrlHJKLGoJ<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoKn :CtrlHJKLGoK<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoHn :CtrlHJKLGoH<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoLn :CtrlHJKLGoL<cr>
+nnoremap <silent> <silent> <Plug>CtrlHJKLGoJn :call <SID>goJ()<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoKn :call <SID>goK()<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoHn :call <SID>goH()<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoLn :call <SID>goL()<cr>
 
-inoremap <unique> <silent> <Plug>CtrlHJKLGoJi <esc>:CtrlHJKLGoJ<cr>i
-inoremap <unique> <silent> <Plug>CtrlHJKLGoKi <esc>:CtrlHJKLGoK<cr>i
-inoremap <unique> <silent> <Plug>CtrlHJKLGoHi <esc>:CtrlHJKLGoH<cr>i
-inoremap <unique> <silent> <Plug>CtrlHJKLGoLi <esc>:CtrlHJKLGoL<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoJi <esc>:call <SID>goJ()<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoKi <esc>:call <SID>goK()<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoHi <esc>:call <SID>goH()<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoLi <esc>:call <SID>goL()<cr>i
 
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveJ x:CtrlHJKLMoveJ<cr>
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveK x:CtrlHJKLMoveK<cr>
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveH x:CtrlHJKLMoveH<cr>
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveL x:CtrlHJKLMoveL<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveJ x:call <SID>moveJ()<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveK x:call <SID>moveK()<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveH x:call <SID>moveH()<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveL x:call <SID>moveL()<cr>
 
 " Actually map unless told not to
 if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
