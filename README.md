@@ -19,8 +19,6 @@ Context sensitive workspace navigation
 	* Causes jitter
 * When working in visual mode (not visual line mode) make select entire line
 	* Currently gives odd behavior
-* Smart detection so don't need to bind `<esc>...i` when in insert mode
-	* Will reduce command namespace too?
 * Make work with prefix counts like `10<c-j>` moves 10 windows/buffers down
 * Document how users can make use of <Plug> settings, hopefully just 4 maps
 
