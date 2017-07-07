@@ -35,6 +35,7 @@ let g:BufKillCreateMappings = 0 " My own keymappings
 " Works with shift '>'
 let g:move_key_modifier = 'S'
 ```
+
 # Inspirations
 
 * [Vim Tab Madness. Buffers vs Tabs](http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/)
