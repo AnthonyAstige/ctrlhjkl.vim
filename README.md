@@ -8,8 +8,7 @@ Context sensitive workspace navigation
 * Workspace context sensitive: Fall through: Windows > Tabs > Buffers
 * Mode context sensitive
 	* Normal mode moves cursor
-	* Visual mode moves selected text remaining in visual mode
-* Visual mode is line based only
+	* Visual mode moves selected (line of) text
 
 ### Issues & potential optomizations
 
