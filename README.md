@@ -5,10 +5,11 @@ Context sensitive workspace navigation
 ## Guiding principals
 
 * `<c-h>` / `<c-j>` / `<c-k>` / `<c-l>` moves cursor around in windows/tabs/buffers
-* Workspace context sensitive: Fall through: Windows > Tabs > Buffers
-* Mode context sensitive
-	* Normal mode moves cursor
-	* Visual mode moves selected (line of) text
+	* Workspace context sensitive: Fall through: Windows > Tabs > Buffers
+	* Mode context sensitive
+		* Normal mode moves cursor
+		* Visual mode moves selected (line of) text
+* `<c-x>` in normal mode closes where cursor is: Window > Tab > Buffer
 
 ## Configuration
 
@@ -16,10 +17,13 @@ Context sensitive workspace navigation
 
 ```
 let g:ctrlhjkl_suppress_keymaps = 1
+
 nmap <s-j> <Plug>CtrlHJKLGoJn
 nmap <s-k> <Plug>CtrlHJKLGoKn
 nmap <s-h> <Plug>CtrlHJKLGoHn
 nmap <s-l> <Plug>CtrlHJKLGoLn
+
+nmap <s-l> <Plug>CtrlHJKLClose
 
 xmap <s-j> <Plug>CtrlHJKLMoveJ
 xmap <s-k> <Plug>CtrlHJKLMoveK
@@ -34,8 +38,19 @@ let g:ctrlhjkl_suppress_buffercycling = 1
 
 [Why cycle when you can fly?](https://i.stack.imgur.com/9CCOq.png)
 
+### Disable buffer closing
+
+```
+let g:ctrlhjkl_suppress_bufferclosing = 1
+```
+
 ### Issues & potential optomizations
 
+* Think about making <c-x> kill buffers in window/tab context?
+	* Window: Close window & kill buffer if this is only place it's open
+	* Tab: Close tab & kill buffer if this is only place it's open
+* Rename from CtrlHJKL?
+	* We now have CtrlX also for closing
 * Create a /doc/ctrlp.txt
 	* And update ctags?
 * Create real screencast .gif and place in README

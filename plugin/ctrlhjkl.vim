@@ -142,6 +142,14 @@ function! s:goL(mode) range
 	call s:paste(a:mode)
 endfunction
 
+function! s:close()
+	if s:haveWindows() || s:haveTabs()
+		:close
+	elseif !get(g:, 'ctrlhjkl_suppress_bufferclosing', 0)
+		:bdelete
+	endif
+endfunction
+
 " Plug templating mappings
 nnoremap <silent> <Plug>CtrlHJKLGoJn :call <SID>goJ('n')<cr>
 nnoremap <silent> <Plug>CtrlHJKLGoKn :call <SID>goK('n')<cr>
@@ -153,12 +161,16 @@ xnoremap <silent> <Plug>CtrlHJKLMoveK :call <SID>goK('v')<cr>
 xnoremap <silent> <Plug>CtrlHJKLMoveH :call <SID>goH('v')<cr>
 xnoremap <silent> <Plug>CtrlHJKLMoveL :call <SID>goL('v')<cr>
 
+nnoremap <silent> <Plug>CtrlHJKLClose :call <SID>close()<cr>
+
 " Actually map unless told not to
 if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
 	nmap <c-j> <Plug>CtrlHJKLGoJn
 	nmap <c-k> <Plug>CtrlHJKLGoKn
 	nmap <c-h> <Plug>CtrlHJKLGoHn
 	nmap <c-l> <Plug>CtrlHJKLGoLn
+
+	nmap <c-x> <Plug>CtrlHJKLClose
 
 	xmap <c-j> <Plug>CtrlHJKLMoveJ
 	xmap <c-k> <Plug>CtrlHJKLMoveK
