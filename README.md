@@ -19,6 +19,15 @@ Context sensitive workspace navigation
 	* Causes jitter
 * Make work with prefix counts like `10<c-j>` moves 10 windows/buffers down
 * Document how users can make use of <Plug> settings, hopefully just 4 maps
+* Create a /doc/ctrlp.txt
+	* And update ctags?
+* Promote this plugin looking for beta testers
+	* Reddit again?
+	* http://www.vim.org/scripts/?
+* Release to places as needed
+	* vimawesome?
+	* http://www.vim.org/scripts/?
+	* ...?
 
 ## Related .vimrc plugins & settings (Optional)
 
