@@ -8,7 +8,6 @@ Context sensitive workspace navigation
 * Workspace context sensitive: Fall through: Windows > Tabs > Buffers
 * Mode context sensitive
 	* Normal mode moves cursor
-	* Insert mode moves cursor remaining in insert mode
 	* Visual mode moves selected text remaining in visual mode
 * Visual mode is line based only
 
@@ -26,8 +25,6 @@ Context sensitive workspace navigation
 * Smart detection so don't need to bind `<esc>...i` when in insert mode
 	* Will reduce command namespace too?
 * Make work with prefix counts like `10<c-j>` moves 10 windows/buffers down
-* Decide if keep mapping in insert mode
-	* "Insert mode mappings for navigation? This seems like it goes against the "Vim Way"." - [princker](https://www.reddit.com/r/vim/comments/6lnwty/creating_plugin_for_navigating_windowsbufferstabs/)
 * Abstract Move functions as just wrapper of Go functions, functional programming in vimscript?
 	* When done with this, document how users can make use of <Plug> settings, hopefully just 4 maps
 

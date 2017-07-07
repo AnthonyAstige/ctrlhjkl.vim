@@ -144,11 +144,6 @@ nnoremap <unique> <silent> <Plug>CtrlHJKLGoKn :call <SID>goK('n')<cr>
 nnoremap <unique> <silent> <Plug>CtrlHJKLGoHn :call <SID>goH('n')<cr>
 nnoremap <unique> <silent> <Plug>CtrlHJKLGoLn :call <SID>goL('n')<cr>
 
-inoremap <unique> <silent> <Plug>CtrlHJKLGoJi <esc>:call <SID>goJ('i')<cr>i
-inoremap <unique> <silent> <Plug>CtrlHJKLGoKi <esc>:call <SID>goK('i')<cr>i
-inoremap <unique> <silent> <Plug>CtrlHJKLGoHi <esc>:call <SID>goH('i')<cr>i
-inoremap <unique> <silent> <Plug>CtrlHJKLGoLi <esc>:call <SID>goL('i')<cr>i
-
 xnoremap <unique> <silent> <Plug>CtrlHJKLMoveJ :call <SID>goJ('v')<cr>
 xnoremap <unique> <silent> <Plug>CtrlHJKLMoveK :call <SID>goK('v')<cr>
 xnoremap <unique> <silent> <Plug>CtrlHJKLMoveH :call <SID>goH('v')<cr>
@@ -160,11 +155,6 @@ if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
 	nmap <c-k> <Plug>CtrlHJKLGoKn
 	nmap <c-h> <Plug>CtrlHJKLGoHn
 	nmap <c-l> <Plug>CtrlHJKLGoLn
-
-	imap <c-j> <Plug>CtrlHJKLGoJi
-	imap <c-k> <Plug>CtrlHJKLGoKi
-	imap <c-h> <Plug>CtrlHJKLGoHi
-	imap <c-l> <Plug>CtrlHJKLGoLi
 
 	xmap <c-j> <Plug>CtrlHJKLMoveJ
 	xmap <c-k> <Plug>CtrlHJKLMoveK
