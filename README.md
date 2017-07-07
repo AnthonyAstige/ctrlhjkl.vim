@@ -10,9 +10,24 @@ Context sensitive workspace navigation
 	* Normal mode moves cursor
 	* Visual mode moves selected (line of) text
 
+## Mapping your own keys
+
+```
+let g:ctrlhjkl_suppress_keymaps
+nmap <s-j> <Plug>CtrlHJKLGoJn
+nmap <s-k> <Plug>CtrlHJKLGoKn
+nmap <s-h> <Plug>CtrlHJKLGoHn
+nmap <s-l> <Plug>CtrlHJKLGoLn
+
+xmap <s-j> <Plug>CtrlHJKLMoveJ
+xmap <s-k> <Plug>CtrlHJKLMoveK
+xmap <s-h> <Plug>CtrlHJKLMoveH
+xmap <s-l> <Plug>CtrlHJKLMoveL
+```
+
+
 ### Issues & potential optomizations
 
-* Document how users can make use of <Plug> settings, hopefully just 4 maps
 * Create a /doc/ctrlp.txt
 	* And update ctags?
 * Promote this plugin looking for beta testers
@@ -34,7 +49,6 @@ let g:BufKillCreateMappings = 0 " My own keymappings
 " Works with shift '>'
 let g:move_key_modifier = 'S'
 ```
-
 ## Inspirations
 
 * [Vim Tab Madness. Buffers vs Tabs](http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/)
