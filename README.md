@@ -17,7 +17,6 @@ Context sensitive workspace navigation
 	* Hacked right now exit mode and re-enter
 	* Loses cursor horizontal position when going back to insert mode
 	* Causes jitter
-* Make work with prefix counts like `10<c-j>` moves 10 windows/buffers down
 * Document how users can make use of <Plug> settings, hopefully just 4 maps
 * Create a /doc/ctrlp.txt
 	* And update ctags?
