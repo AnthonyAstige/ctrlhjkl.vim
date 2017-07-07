@@ -34,11 +34,6 @@ let g:BufKillCreateMappings = 0 " My own keymappings
 " matze/vim-move to work as <s-j> and <s-k>
 " Works with shift '>'
 let g:move_key_modifier = 'S'
-
-" ctrlpvim/ctrlp.vim
-" Use ctrlp in insert mode
-" * TODO: Make this put back in insert mode
-inoremap <silent> <c-p> <esc>:CtrlP<cr>
 ```
 # Inspirations
 
