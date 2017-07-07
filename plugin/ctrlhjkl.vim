@@ -143,15 +143,15 @@ function! s:goL(mode) range
 endfunction
 
 " Plug templating mappings
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoJn :call <SID>goJ('n')<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoKn :call <SID>goK('n')<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoHn :call <SID>goH('n')<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoLn :call <SID>goL('n')<cr>
+nnoremap <silent> <Plug>CtrlHJKLGoJn :call <SID>goJ('n')<cr>
+nnoremap <silent> <Plug>CtrlHJKLGoKn :call <SID>goK('n')<cr>
+nnoremap <silent> <Plug>CtrlHJKLGoHn :call <SID>goH('n')<cr>
+nnoremap <silent> <Plug>CtrlHJKLGoLn :call <SID>goL('n')<cr>
 
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveJ :call <SID>goJ('v')<cr>
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveK :call <SID>goK('v')<cr>
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveH :call <SID>goH('v')<cr>
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveL :call <SID>goL('v')<cr>
+xnoremap <silent> <Plug>CtrlHJKLMoveJ :call <SID>goJ('v')<cr>
+xnoremap <silent> <Plug>CtrlHJKLMoveK :call <SID>goK('v')<cr>
+xnoremap <silent> <Plug>CtrlHJKLMoveH :call <SID>goH('v')<cr>
+xnoremap <silent> <Plug>CtrlHJKLMoveL :call <SID>goL('v')<cr>
 
 " Actually map unless told not to
 if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
