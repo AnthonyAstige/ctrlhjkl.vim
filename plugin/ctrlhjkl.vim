@@ -9,18 +9,11 @@ function! s:haveWindows()
 	return len(gettabinfo(tabpagenr())[0].windows) > 1
 endfunction
 
-" TODO: Use this? Taken from vim-move
-"function! s:ResetCursor()
-"	normal! gv=gv^
-"endfunction
-
-" Leftmost window in next tab
+" Leftmost & rightmove window in target tab
 function! s:tabnext()
 	tabnext
 	1000wincmd h
 endfunction
-
-" Right window in prev tab
 function! s:tabprev()
 	tabprev
 	1000wincmd l
@@ -36,9 +29,25 @@ function! s:bprev()
 	:bprev
 endfunction
 
+" Cut n paste without overwritting unnamed register
+" * Only function in v mode passing
+let s:originalValue = ''
+function! s:cut(mode)
+	if a:mode ==# 'v'
+		let s:originalValue = @@
+		normal! gvx
+	endif
+endfunction
+function! s:paste(mode)
+	if a:mode ==# 'v'
+		normal! P`[V`]
+		let @@ = s:originalValue
+	endif
+endfunction
 
 "" Movement functions
-function! s:goJ()
+function! s:goJ(mode) range
+	call s:cut(a:mode)
 	if s:haveWindows()
 		let winnrBefore = winnr()
 		wincmd j
@@ -53,9 +62,11 @@ function! s:goJ()
 	else
 		call s:bprev()
 	endif
+	call s:paste(a:mode)
 endfunction
 
-function! s:goK()
+function! s:goK(mode) range
+	call s:cut(a:mode)
 	if s:haveWindows()
 		let winnrBefore = winnr()
 		wincmd k
@@ -70,9 +81,11 @@ function! s:goK()
 	else
 		call s:bnext()
 	endif
+	call s:paste(a:mode)
 endfunction
 
-function! s:goH()
+function! s:goH(mode) range
+	call s:cut(a:mode)
 	if s:haveWindows()
 		let winnrBefore = winnr()
 		wincmd h
@@ -95,9 +108,11 @@ function! s:goH()
 			call s:bnext()
 		endif
 	endif
+	call s:paste(a:mode)
 endfunction
 
-function! s:goL()
+function! s:goL(mode) range
+	call s:cut(a:mode)
 	if s:haveWindows()
 		let winnrBefore = winnr()
 		wincmd l
@@ -120,44 +135,24 @@ function! s:goL()
 			call s:bprev()
 		endif
 	endif
-endfunction
-
-" Code movers
-function! s:moveJ()
-	call s:goJ()
-	normal! P`[V`]
-endfunction
-
-function! s:moveK()
-	call s:goK()
-	normal! P`[V`]
-endfunction
-
-function! s:moveH()
-	call s:goH()
-	normal! P`[V`]
-endfunction
-
-function! s:moveL()
-	call s:goL()
-	normal! P`[V`]
+	call s:paste(a:mode)
 endfunction
 
 " Plug templating mappings
-nnoremap <silent> <silent> <Plug>CtrlHJKLGoJn :call <SID>goJ()<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoKn :call <SID>goK()<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoHn :call <SID>goH()<cr>
-nnoremap <unique> <silent> <Plug>CtrlHJKLGoLn :call <SID>goL()<cr>
+nnoremap <silent> <silent> <Plug>CtrlHJKLGoJn :call <SID>goJ('n')<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoKn :call <SID>goK('n')<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoHn :call <SID>goH('n')<cr>
+nnoremap <unique> <silent> <Plug>CtrlHJKLGoLn :call <SID>goL('n')<cr>
 
-inoremap <unique> <silent> <Plug>CtrlHJKLGoJi <esc>:call <SID>goJ()<cr>i
-inoremap <unique> <silent> <Plug>CtrlHJKLGoKi <esc>:call <SID>goK()<cr>i
-inoremap <unique> <silent> <Plug>CtrlHJKLGoHi <esc>:call <SID>goH()<cr>i
-inoremap <unique> <silent> <Plug>CtrlHJKLGoLi <esc>:call <SID>goL()<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoJi <esc>:call <SID>goJ('i')<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoKi <esc>:call <SID>goK('i')<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoHi <esc>:call <SID>goH('i')<cr>i
+inoremap <unique> <silent> <Plug>CtrlHJKLGoLi <esc>:call <SID>goL('i')<cr>i
 
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveJ x:call <SID>moveJ()<cr>
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveK x:call <SID>moveK()<cr>
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveH x:call <SID>moveH()<cr>
-xnoremap <unique> <silent> <Plug>CtrlHJKLMoveL x:call <SID>moveL()<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveJ :call <SID>goJ('v')<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveK :call <SID>goK('v')<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveH :call <SID>goH('v')<cr>
+xnoremap <unique> <silent> <Plug>CtrlHJKLMoveL :call <SID>goL('v')<cr>
 
 " Actually map unless told not to
 if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
