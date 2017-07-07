@@ -1,4 +1,4 @@
-# CtrlHJKL v0.1.1
+# CtrlHJKL v0.1.2
 
 Context sensitive workspace navigation
 
