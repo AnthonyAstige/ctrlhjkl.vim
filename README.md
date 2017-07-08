@@ -46,6 +46,16 @@ let g:ctrlhjkl_suppress_bufferclosing = 1
 
 ### Issues & potential optomizations
 
+* Move in my .vimrc tab mappings?
+	* Add tab movement mappings
+		* Tab to right & tab to left, cycling
+		* <ctrl-t><ctrl-h>
+		* <ctrl-t><ctrl-l>
+	* Add tab initialization mapping
+		* Initialize tab to far right?
+		* Same <ctrl-t><ctrl-t>
+* Add my related Ctrl-P/Ack!/NerdTree unified mappings for opening in windows/tabs
+	* Just in docs, not in actual plugin
 * Think about making <c-x> kill buffers in window/tab context?
 	* Window: Close window & kill buffer if this is only place it's open
 	* Tab: Close tab & kill buffer if this is only place it's open
