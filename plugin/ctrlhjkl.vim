@@ -146,7 +146,7 @@ function! s:close()
 	if s:haveWindows() || s:haveTabs()
 		:close
 	elseif !get(g:, 'ctrlhjkl_suppress_bufferclosing', 0)
-		:bdelete
+		:bdelete!
 	endif
 endfunction
 
