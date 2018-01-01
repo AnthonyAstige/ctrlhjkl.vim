@@ -169,12 +169,12 @@ if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
 	nmap <c-k> <Plug>CtrlHJKLGoKn
 	nmap <c-h> <Plug>CtrlHJKLGoHn
 	nmap <c-l> <Plug>CtrlHJKLGoLn
-	
+
 	if has('nvim')
-		tnoremap <expr> <c-j> <Plug>CtrlHJKLGoJn
-		tnoremap <expr> <c-k> <Plug>CtrlHJKLGoKn
-		tnoremap <expr> <c-h> <Plug>CtrlHJKLGoHn
-		tnoremap <expr> <c-l> <Plug>CtrlHJKLGoLn
+        :tnoremap <c-h> <c-\><c-n>:call <SID>goH('n')<cr>
+        :tnoremap <c-j> <c-\><c-n>:call <SID>goJ('n')<cr>
+        :tnoremap <c-k> <c-\><c-n>:call <SID>goK('n')<cr>
+        :tnoremap <c-l> <c-\><c-n>:call <SID>goL('n')<cr>
 	endif
 
 	nmap <c-x> <Plug>CtrlHJKLClose
