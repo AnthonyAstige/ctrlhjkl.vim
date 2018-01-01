@@ -175,6 +175,8 @@ if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
         :tnoremap <c-j> <c-\><c-n>:call <SID>goJ('n')<cr>
         :tnoremap <c-k> <c-\><c-n>:call <SID>goK('n')<cr>
         :tnoremap <c-l> <c-\><c-n>:call <SID>goL('n')<cr>
+
+        :tnoremap <c-x> <c-\><c-n>:call <SID>close()<cr>
 	endif
 
 	nmap <c-x> <Plug>CtrlHJKLClose
