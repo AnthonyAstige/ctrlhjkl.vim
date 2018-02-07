@@ -182,11 +182,27 @@ if !get(g:, 'ctrlhjkl_suppress_keymaps', 0)
         :tnoremap <c-l> <c-\><c-n>:call <SID>goL('n')<cr>
         :tnoremap <c-x> <c-\><c-n>:call <SID>close()<cr>
 
-        " TODO: Put these back in when figured out a real solution to fzf conflict
-        " TODO: * For now you can copy/paste these in
-        " TODO: * Anthony has a workaround hack in him vimrc via binding terminal open
+        " TODO: Find a real solution to fzf conflict documented below
+        " <c-j> & <c-k> conflict with fzf.vim (which uses <c-j> & <c-k> in terminal)
+        " Copy these 2 lines into your vimrc if you don't use fzf
+        " :tnoremap <c-j> <c-\><c-n>:call <SID>goJ('n')<cr>
         " :tnoremap <c-k> <c-\><c-n>:call <SID>goK('n')<cr>
-        " :tnoremap <c-l> <c-\><c-n>:call <SID>goL('n')<cr>
+        "
+        "
+        " Here's a hack workaround Anthony is using for now to work with fzf
+        "    " Open inserting terminal from any mode into, +non-fzf mapping fixes
+        "    func MapTermStuff()
+        "        " CtrlHJKL J/K
+        "        :tnoremap <buffer> <c-k> <c-\><c-n>:execute "normal \<Plug>CtrlHJKLGoKn"<cr>
+        "        :tnoremap <buffer> <c-j> <c-\><c-n>:execute "normal \<Plug>CtrlHJKLGoKn"<cr>
+        "
+        "        " <esc> means <esc> (fzf does it's own magic and don't want to rebind)
+        "        " * https://neovim.io/doc/user/nvim_terminal_emulator.html
+        "        :tnoremap <buffer> <Esc> <C-\><C-n>
+        "    endfunc
+        "    :nnoremap <c-w><c-t> :term<cr>:call MapTermStuff()<cr>i
+        "    :vnoremap <c-w><c-t> <esc>:term<cr>:call MapTermStuff()<cr>i
+        "    :inoremap <c-w><c-t> <esc>:term<cr>:call MapTermStuff()<cr>i
 	endif
 
 	xmap <c-j> <Plug>CtrlHJKLMoveJ
